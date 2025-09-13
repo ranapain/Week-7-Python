@@ -1,0 +1,16 @@
+def atMostK(s, k):
+    from collections import defaultdict
+    count, left = 0, 0
+    freq = defaultdict(int)
+    for right, ch in enumerate(s):
+        freq[ch] += 1
+        while len(freq) > k:
+            freq[s[left]] -= 1
+            if freq[s[left]] == 0:
+                del freq[s[left]]
+            left += 1
+        count += right - left + 1
+    return count
+
+def substrCountKDistinct(s, k):
+    return atMostK(s, k) - atMostK(s, k-1)
