@@ -1,0 +1,6 @@
+def toh(n, src, dest, aux):
+    if n == 0:
+        return
+    toh(n-1, src, aux, dest)
+    print(f"Move disk {n} from {src} to {dest}")
+    toh(n-1, aux, dest, src)
