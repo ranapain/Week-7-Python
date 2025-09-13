@@ -1,0 +1,8 @@
+def isPalindrome(s, i=0, j=None):
+    if j is None:
+        j = len(s) - 1
+    if i >= j:
+        return True
+    if s[i] != s[j]:
+        return False
+    return isPalindrome(s, i+1, j-1)
